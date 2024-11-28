@@ -1,0 +1,531 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    outline: none;
+    border: none;
+}
+
+/*Definition des variables de couleur*/
+/*-------------------------------------------------------------------------------------------------*/
+:root {
+    --hoverButton: #00000018;
+    --hoverButton2: #00000012;
+    --simpleDark: #00000078;
+    --redSide: #C84031;
+    --lightDark: #F9E9E7;
+    --borderElement: #EDEFF1;
+}
+
+/*Styles pour le header du website*/
+/*-------------------------------------------------------------------------------------------------*/
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.4em 0.95rem 0.4em 1.5rem;
+    border-bottom: 1.5px solid var(--borderElement);
+}
+
+.leftSide {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5.35em;
+}
+
+.left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.header .left img {
+    cursor: pointer;
+}
+
+.header .left img.burger {
+    padding: 0.65rem;
+    transition: all 0.15s;
+    border-radius: 50%;
+}
+
+.header .left img.burger:hover {
+    background: var(--hoverButton);
+}
+
+.header .left a img {
+    background-color: transparent;
+    transform: scale(90%) translateY(2px);
+}
+
+.search {
+    display: block;
+    position: relative;
+    background: #F1F3F4;
+    border-radius: 0.25em;
+    width: 57%;
+    height: 2.7em;
+}
+
+.search img {
+    padding: 0.25em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s;
+    background: transparent;
+}
+
+.search img:hover {
+    background: var(--hoverButton);
+}
+
+.search img:first-child {
+    position: absolute;
+    top: 50%;
+    left: 0.65em;
+    transform: translateY(-49%);
+}
+
+.search img:last-child {
+    position: absolute;
+    top: 50%;
+    right: 0.6em;
+    transform: translateY(-49%);
+}
+
+.search input {
+    width: 100%;
+    height: 100%;
+    font-size: 1em;
+    padding-left: 2.9em;
+    background: transparent;
+}
+
+
+.header .rightSide {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.35em;
+}
+
+.header .rightSide img {
+    padding: 0.45em;
+    border-radius: 50%;
+    transition: all 0.15s;
+    background: transparent;
+}
+
+.header .rightSide img:hover {
+    background: var(--hoverButton);
+}
+
+.rightSide button.user {
+    display: flex;
+    justify-content: center;
+    outline: 3px solid transparent;
+    transition: all 0.15s;
+    align-items: center;
+    width: 2.65em;
+    height: 2.65em;
+    border-radius: 50%;
+    background: #000;
+    /*Permet de definir la couleur pour le profil d'un user*/
+}
+
+.rightSide button.user:hover {
+    outline: 3px solid var(--hoverButton);
+}
+
+.rightSide p {
+    padding-top: 1px;
+    color: white;
+    font-size: 1.3em;
+    display: block;
+    background: transparent;
+}
+
+
+/*Styles pour la sidebar du coté gauche du website*/
+/*-------------------------------------------------------------------------------------------------*/
+.home {
+    width: 100%;
+    height: calc(100vh - 3.7em);
+    overflow: hidden;
+    display: flex;
+    position: relative;
+}
+
+
+section.leftbar {
+    flex-shrink: 0;
+    flex-grow: 0;
+    width: 19%;
+    height: 100%;
+    padding: 1.5em 0;
+    background: transparent;
+}
+
+section.leftbar .compose {
+    width: 8.85em;
+    display: flex;
+    justify-content: center;
+    transform: translateX(1.5em);
+    transition: all 0.15s;
+    align-items: center;
+    padding: 0.75em 0.4em;
+    border-radius: 1.5em;
+    gap: 0.5em;
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.15),
+        0 1px 2px 0 rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+}
+
+section.leftbar .compose:hover {
+    box-shadow: 0 2.5px 5px 4px rgba(0, 0, 0, 0.05),
+        0 1.5px 3px 2px rgba(0, 0, 0, 0.1),
+        0 1px 3px 1px rgba(0, 0, 0, 0.125);
+}
+
+section.leftbar .compose img {
+    transform: scale(93%) translateX(-0.50em);
+}
+
+section.leftbar .compose p {
+    font-size: 0.9em;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+section.leftbar .side {
+    margin-top: 1.5em;
+}
+
+section.leftbar .side .element {
+    width: 98%;
+    display: flex;
+    padding: 0.4em 0;
+    cursor: pointer;
+    justify-content: space-between;
+    align-items: center;
+    border-top-right-radius: 1.2em;
+    border-bottom-right-radius: 1.2em;
+}
+
+section.leftbar .side .element:hover {
+    background: var(--hoverButton2);
+}
+
+
+section.leftbar .side .element div {
+    padding-left: 1.4em;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.8em;
+
+}
+
+section.leftbar .side .element div svg path {
+    fill: #000;
+    fill-opacity: 0.54;
+}
+
+section.leftbar .side .element div p {
+    text-align: center;
+    font-weight: 300;
+    opacity: 0.6;
+    padding-top: 1px;
+    font-size: 0.9em;
+}
+
+section.leftbar .side .element .sp {
+    width: 1em;
+    display: flex;
+    justify-content: center;
+    margin-right: 1.4em;
+}
+
+section.leftbar .side .element .sp span {
+    font-size: 0.75em;
+    padding-top: 2px;
+    opacity: 0.7;
+}
+
+/*En actif maintenant */
+section.leftbar .side .element.active {
+    background: var(--lightDark);
+}
+
+section.leftbar .side .element.falseActive {
+    background: var(--hoverButton2);
+}
+
+section.leftbar .side .element.active div svg path {
+    fill: var(--redSide);
+    fill-opacity: 1;
+}
+
+section.leftbar .side .element.active div p {
+    color: var(--redSide);
+    font-weight: 500;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+section.leftbar .side .element.active .sp span {
+    color: var(--redSide);
+    font-weight: 600;
+    opacity: 1;
+}
+
+
+/*Styles pour le centre de la page du website*/
+/*-------------------------------------------------------------------------------------------------*/
+.emailSection {
+    flex-shrink: 0;
+    flex-grow: 0;
+    transition: all 0.25s;
+    width: 76.5%;
+    height: 100%;
+    padding: 1.5em 1.5em;
+    /* background: var(--hoverButton2); */
+}
+
+.emailSection .selectbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topOptions {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.selectBlocGlobal {
+    width: 2.85em;
+    border-radius: 3px;
+    display: flex;
+    justify-content: flex-start;
+    overflow: hidden;
+    align-items: center;
+    border: 1px solid transparent;
+    gap: 0;
+}
+
+.selectAllBloc {
+    width: 1.7em;
+    height: 2.1em;
+    border-radius: 3px;
+    transition: all 0.15s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+}
+.selectAllBloc:hover {
+    background: var(--hoverButton2);
+}
+
+.selectAll {
+    appearance: none;
+    position: relative;
+    transition: all 0.35s;
+    width: 1.2em;
+    height: 1.2em;
+    border-radius: 0.25em;
+    border: 2px solid var(--simpleDark);
+}
+
+.selectAll::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2228%22%20height%3D%2228%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M10%2015.586L6.70703%2012.293L5.29303%2013.707L10%2018.414L19.707%208.707L18.293%207.293L10%2015.586Z%22%20fill%3D%22%2300000078%22%2F%3E%0A%3C%2Fsvg%3E%0A');
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    transform: translateX(-57.5%) translateY(-57.5%);
+}
+.selectAll:checked::before{
+    opacity: 1;
+}
+
+.selectBlocGlobal img{
+    padding: 0.5em 0.2em;
+    border-radius: 3px;
+    transition: all 0.15s;
+    background: transparent;
+}
+
+.selectBlocGlobal img:hover{
+    background-color: var(--hoverButton2);
+}
+
+.topOptions button{
+    background: transparent;
+    transition: all 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.6em;
+    height: 2.6em;
+    transform: scale(90%);
+    border-radius: 50%;
+}
+.topOptions button:hover{
+    background: var(--hoverButton2);
+}
+
+/*Styles pour la sidebar de retrecissement de la sidebar droite */
+/*-------------------------------------------------------------------------------------------------*/
+
+.shrinkSidebar {
+    position: absolute;
+    transition: all 0.25s;
+    cursor: pointer;
+    right: 2.25%;
+    bottom: 1.75em;
+    width: 2.65em;
+    height: 2.65em;
+    transform: translateX(50%);
+}
+
+.shrinkSidebar.active {
+    right: -0.75%;
+    width: 5em;
+    height: 2.65em;
+    border-top-left-radius: 2.65em;
+    border-bottom-left-radius: 2.65em;
+    background: var(--hoverButton);
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.10),
+        0.5px 3px 5px 3px rgba(0, 0, 0, 0.075),
+        1px 1px 2px 1px rgba(0, 0, 0, 0.05);
+}
+
+.shrinkSidebar.active:hover {
+    right: 0%;
+}
+
+.shrinkSidebar button {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    cursor: pointer;
+    transition: all 0.25s;
+    justify-content: center;
+    border-radius: 50%;
+    align-items: center;
+    background: transparent;
+}
+
+.shrinkSidebar button:hover {
+    background: var(--hoverButton2);
+}
+
+.shrinkSidebar.active button {
+    width: 42.5%;
+    height: 100%;
+    background: transparent;
+    transform: rotate(180deg);
+}
+
+.shrinkSidebar.active button:hover {
+    background: transparent;
+}
+
+/*Styles pour la sidebar du coté droite du website*/
+/*-------------------------------------------------------------------------------------------------*/
+
+section.rightbar {
+    flex-shrink: 0;
+    flex-grow: 0;
+    width: 4.5%;
+    height: 100%;
+    padding: 1.5em 0;
+    border-left: 1.5px solid var(--borderElement);
+    /* background: var(--lightDark); */
+}
+
+section.rightbar.inactive {
+    width: 0%;
+}
+
+section.rightbar .centered {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+section.rightbar.inactive .centered {
+    display: none;
+}
+
+section.rightbar .firstBloc {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.65em;
+    padding: 0 0 1.15em;
+    border-bottom: 1.5px solid var(--borderElement);
+}
+
+section.rightbar .firstBloc div {
+    width: 2.65em;
+    height: 2.65em;
+    display: flex;
+    transition: all 0.25s;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+section.rightbar .firstBloc img {
+    transform: scale(115%);
+    background: transparent;
+}
+
+section.rightbar .firstBloc div:hover {
+    background: var(--hoverButton);
+}
+
+section.rightbar .addModule {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.75em 0;
+}
+
+section.rightbar.inactive .addModule {
+    display: none;
+}
+
+section.rightbar .addModule button {
+    width: 3em;
+    height: 3em;
+    display: flex;
+    justify-content: center;
+    transition: all 0.25s;
+    align-items: center;
+    background: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+section.rightbar .addModule button:hover {
+    background: var(--hoverButton);
+}
