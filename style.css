@@ -497,7 +497,7 @@ section.leftbar .side .element.active .sp span {
     text-wrap: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 100px;
+    width: 90px;
     transition: all 0.25s;
     font-size: 0.9em;
     font-weight: 500;
@@ -538,7 +538,7 @@ section.leftbar .side .element.active .sp span {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 0.35em;
+    gap: 0.1em;
 }
 
 .choiceEmailType .arrivalsBloc .arrivals {
@@ -546,7 +546,8 @@ section.leftbar .side .element.active .sp span {
     background: var(--hoverButton);
     padding: 0.25em 0.5em;
     border-radius: 3px;
-    transform: scale(90%);
+    text-wrap: nowrap;
+    transform: scale(87%);
     color: white;
     font-size: 0.8em;
 }
@@ -773,12 +774,13 @@ section.rightbar .addModule button:hover {
 .emailShort {
     display: flex;
     width: 100%;
+    height: 2.7em;
+    background: #0002;
     justify-content: flex-start;
     cursor: pointer;
     align-items: center;
     background: var(--lightDarkFont);
     gap: 7em;
-    padding: 0.35em 0.25em;
     border-bottom: 1px solid var(--borderElement);
 }
 
@@ -869,13 +871,13 @@ section.rightbar .addModule button:hover {
 .rightEmailSide {
     width: calc(83% - 7em);
     display: flex;
-    justify-content: flex-start;
-    gap: 2em;
+    justify-content: space-between;
+    /* gap: 2em; */
     align-items: center;
 }
 
 .rightEmailSide .emailAllDetails {
-    width: 90%;
+    width: 80%;
     overflow: hidden;
     text-overflow: ellipsis;
     text-wrap: nowrap;
@@ -919,4 +921,35 @@ section.rightbar .addModule button:hover {
     font-size: 0.75em;
     font-weight: 600;
     opacity: 0.65;
+}
+.emailShort:hover .rightEmailSide .time {
+    display: none;
+}
+
+.hiddenButtons {
+    display: none;
+}
+.emailShort:hover .hiddenButtons{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.4em;
+}
+
+.emailShort .hiddenButtons button {
+    width: 2.9em;
+    height: 2.9em;
+    display: flex;
+    justify-content: center;
+    transition: all 0.15s;
+    border-radius: 50%;
+    align-items: center;
+    background: transparent;
+}
+.emailShort .hiddenButtons button:hover{
+    background: var(--hoverButton2);
+}
+
+.emailShort .hiddenButtons button:nth-child(2){
+    transform: translateY(-1px);
 }
