@@ -3,6 +3,8 @@ let rightbar = document.querySelector(".rightbar")
 let emailSection = document.querySelector("div.emailSection")
 let selectAllEmail = document.querySelector(".selectBlocGlobal")
 let checkbox = document.querySelector(`input[type="checkbox"]`)
+let allChoiceEmailTypes = document.querySelectorAll(".choiceEmailType")
+let allEmails = document.querySelectorAll(".emailShort")
 
 seeRightBar.addEventListener("click", (event) => {
     event.preventDefault()
@@ -28,4 +30,33 @@ selectAllEmail.addEventListener("click", (event) => {
         selectAllEmail.style.border = "1px solid transparent"
         selectAllEmail.classList.add('inactive')
     }
+})
+
+allChoiceEmailTypes.forEach(item => {
+    item.addEventListener("click", (event) => {
+        event.preventDefault();
+        if(item.classList.contains("active")) {
+            // nothings
+        } else {
+            allChoiceEmailTypes.forEach(item => {
+                if(item.classList.contains("active")) {
+                    item.classList.remove("active")
+                }
+            })
+            item.classList.add("active")
+        }
+    })
+})
+
+allEmails.forEach((item)=> {
+    let inputCheckOff =item.querySelector("input")
+    inputCheckOff.addEventListener("click", (event)=> {
+        if (inputCheckOff.checked && !item.classList.contains("checked")) {
+            item.classList.add("checked")
+        } else if (inputCheckOff.checked && item.classList.contains("checked")) {
+            // leave and continue
+        }else {
+            item.classList.remove("checked")
+        }
+    })
 })

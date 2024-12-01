@@ -14,7 +14,12 @@
     --hoverButton2: #00000012;
     --simpleDark: #00000078;
     --redSide: #C84031;
+    --resideLight: #C8403130;
     --lightDark: #F9E9E7;
+    --lightDarkFont: #F9E9E771;
+    --simpleBlue: #3474E0;
+    --simpleGreen: #3C7D40;
+    --simpleOrange: #D6792D;
     --borderElement: #EDEFF1;
 }
 
@@ -176,7 +181,7 @@ section.leftbar .compose {
     display: flex;
     justify-content: center;
     transform: translateX(1.5em);
-    transition: all 0.15s;
+    transition: all 0.25s;
     align-items: center;
     padding: 0.75em 0.4em;
     border-radius: 1.5em;
@@ -293,11 +298,12 @@ section.leftbar .side .element.active .sp span {
     transition: all 0.25s;
     width: 76.5%;
     height: 100%;
-    padding: 1.5em 1.5em;
     /* background: var(--hoverButton2); */
 }
 
-.emailSection .selectbar{
+.emailSection .selectbar {
+    padding: 0.6em 1.5em;
+    border-bottom: 1px solid var(--borderElement);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -307,6 +313,22 @@ section.leftbar .side .element.active .sp span {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+}
+
+.topOptions button {
+    background: transparent;
+    transition: all 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.6em;
+    height: 2.6em;
+    transform: scale(90%);
+    border-radius: 50%;
+}
+
+.topOptions button:hover {
+    background: var(--hoverButton2);
 }
 
 .selectBlocGlobal {
@@ -330,6 +352,7 @@ section.leftbar .side .element.active .sp span {
     align-items: center;
     background: transparent;
 }
+
 .selectAllBloc:hover {
     background: var(--hoverButton2);
 }
@@ -353,40 +376,248 @@ section.leftbar .side .element.active .sp span {
     background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2228%22%20height%3D%2228%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M10%2015.586L6.70703%2012.293L5.29303%2013.707L10%2018.414L19.707%208.707L18.293%207.293L10%2015.586Z%22%20fill%3D%22%2300000078%22%2F%3E%0A%3C%2Fsvg%3E%0A');
     background-size: contain;
     background-repeat: no-repeat;
-    top: 50%;
-    left: 50%;
+    top: 0%;
+    left: 0%;
     opacity: 0;
-    transform: translateX(-57.5%) translateY(-57.5%);
+    transform: translateX(-0.12em) translateY(-0.12em);
 }
-.selectAll:checked::before{
+
+.selectAll:checked::before {
     opacity: 1;
 }
 
-.selectBlocGlobal img{
+.selectBlocGlobal img {
     padding: 0.5em 0.2em;
     border-radius: 3px;
     transition: all 0.15s;
     background: transparent;
 }
 
-.selectBlocGlobal img:hover{
+.selectBlocGlobal img:hover {
     background-color: var(--hoverButton2);
 }
 
-.topOptions button{
-    background: transparent;
-    transition: all 0.2s;
+.slideOnEmail {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
-    width: 2.6em;
-    height: 2.6em;
-    transform: scale(90%);
+    gap: 0.8em;
+}
+
+.slideOnEmail p {
+    transform: translateY(1px);
+    cursor: pointer;
+    font-size: 0.8em;
+    opacity: 0.6;
+    padding: 0.85em 0.7em;
+    border-radius: 5px;
+}
+
+.slideOnEmail p:hover {
+    background: var(--hoverButton);
+}
+
+.slideOnEmail .slideButtons button {
+    width: 2.75em;
+    height: 2.75em;
     border-radius: 50%;
+    background: transparent;
+    opacity: 0.8;
+    cursor: pointer;
 }
-.topOptions button:hover{
-    background: var(--hoverButton2);
+
+.slideOnEmail .slideButtons button.inactive {
+    opacity: 0.4;
 }
+
+.slideOnEmail .slideButtons button:hover {
+    background: var(--hoverButton);
+}
+
+.slideOnEmail .slideButtons button.inactive:hover {
+    background: transparent;
+}
+
+.slideOnEmail .slideButtons button:first-child {
+    margin-right: 0em;
+}
+
+.slideOnEmail .slideButtons button img {
+    margin: auto;
+    margin-top: 3px;
+}
+
+.slideOnEmail .slideButtons button:first-child img {
+    transform: rotate(180deg);
+
+}
+
+.emailSection .emailBox {
+    width: 100%;
+    height: calc(100vh - 8.5em);
+    overflow-y: scroll;
+}
+
+.emailSection .emailBox::-webkit-scrollbar {
+    width: 12px;
+    background: transparent;
+}
+
+.emailSection .emailBox::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.choiceEmailTypeBar {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 1px solid var(--borderElement);
+    align-items: stretch;
+}
+
+.choiceEmailType {
+    position: relative;
+    transition: all 0.35s;
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-start;
+    gap: 1.2em;
+    align-items: center;
+    padding: 0.8em 1.5em;
+    width: 24%;
+    overflow: hidden;
+}
+
+.choiceEmailType:hover {
+    background: var(--lightDarkFont);
+}
+
+.choiceEmailType p {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100px;
+    transition: all 0.25s;
+    font-size: 0.9em;
+    font-weight: 500;
+    opacity: 0.65;
+}
+
+.choiceEmailType p.details {
+    font-family: Arial, Helvetica, sans-serif;
+    text-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 120px;
+    transition: all 0.25s;
+    font-size: 0.75em;
+    letter-spacing: 0.025em;
+    font-weight: 200;
+    opacity: 0.45;
+}
+
+
+.choiceEmailType.active p {
+    color: var(--redSide);
+    width: auto;
+    transform: translateY(0.5em);
+    opacity: 1;
+}
+
+.choiceEmailType.active:first-child p {
+    transform: translateY(0);
+}
+
+.choiceEmailType.active p.details {
+    transform: translateY(0.5em);
+    opacity: 0;
+}
+
+.choiceEmailType .arrivalsBloc {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.35em;
+}
+
+.choiceEmailType .arrivalsBloc .arrivals {
+    transition: all 0.25s;
+    background: var(--hoverButton);
+    padding: 0.25em 0.5em;
+    border-radius: 3px;
+    transform: scale(90%);
+    color: white;
+    font-size: 0.8em;
+}
+
+.choiceEmailType:nth-child(2) .arrivalsBloc .arrivals {
+    background: var(--simpleBlue);
+}
+
+.choiceEmailType:nth-child(3) .arrivalsBloc .arrivals {
+    background: var(--simpleGreen);
+}
+
+.choiceEmailType:nth-child(4) .arrivalsBloc .arrivals {
+    background: var(--simpleOrange);
+}
+
+.choiceEmailType.active .arrivalsBloc .arrivals {
+    transform: translateY(0.5em);
+    display: none;
+    opacity: 0;
+}
+
+.choiceEmailType svg path {
+    transition: all 0.1s;
+    fill: rgba(0, 0, 0, 0.54);
+}
+
+.choiceEmailType.active svg path {
+    fill: var(--redSide);
+}
+
+.choiceEmailType:nth-child(2) svg {
+    transform: translateY(0.1em);
+}
+
+.choiceEmailType:nth-child(4) svg {
+    transform: translateY(0.05em);
+}
+
+.choiceEmailType:nth-child(2) svg path,
+.choiceEmailType:nth-child(4) svg path {
+    fill-opacity: 0.75;
+}
+
+.choiceEmailType .activeState {
+    transition: all 0.1s;
+    display: block;
+    position: absolute;
+    bottom: -0.75em;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 0.4em;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    background: var(--redSide);
+}
+
+.choiceEmailType.active .activeState {
+    display: block;
+    position: absolute;
+    bottom: -0.2em;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 0.4em;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background: var(--redSide);
+}
+
 
 /*Styles pour la sidebar de retrecissement de la sidebar droite */
 /*-------------------------------------------------------------------------------------------------*/
@@ -528,4 +759,164 @@ section.rightbar .addModule button {
 
 section.rightbar .addModule button:hover {
     background: var(--hoverButton);
+}
+
+/*Styles pour un composamt email*/
+/*-------------------------------------------------------------------------------------------------*/
+
+
+.emails {
+    width: 100%;
+    height: 100vh;
+}
+
+.emailShort {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    cursor: pointer;
+    align-items: center;
+    background: var(--lightDarkFont);
+    gap: 7em;
+    padding: 0.35em 0.25em;
+    border-bottom: 1px solid var(--borderElement);
+}
+
+.emailShort.unread {
+    background: white;
+}
+
+.emailShort.checked {
+    background: var(--resideLight);
+}
+
+.emailShort:hover {
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.05),
+        0 1px 2px 0px rgba(0, 0, 0, 0.025),
+        0 1px 1px 0px rgba(0, 0, 0, 0.010);
+}
+
+.leftEmailSide {
+    display: flex;
+    width: 17%;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.actionOptions {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.drag {
+    display: flex;
+    justify-content: center;
+    background: transparent;
+    align-items: center;
+    cursor: grab;
+    opacity: 0;
+}
+
+.emailShort:hover .drag {
+    opacity: 1;
+}
+
+.emailShort .selectAllBloc {
+    transform: scale(95%);
+    opacity: 0.7;
+}
+
+.emailShort:hover .selectAllBloc {
+    opacity: 1;
+}
+
+.emailShort .actionOptions button:last-child {
+    display: flex;
+    transition: all 0.5s;
+    margin-top: 1px;
+    margin-left: 0.2em;
+    padding: 0.55em;
+    border-radius: 50%;
+    opacity: 0.7;
+    justify-content: center;
+    background: transparent;
+    align-items: center;
+}
+
+.emailShort .actionOptions button:last-child:hover {
+    background: var(--hoverButton2);
+}
+
+.emailShort:hover .actionOptions button:last-child {
+    opacity: 1;
+}
+
+.emailSender {
+    margin-left: 0.3em;
+    padding-top: 0.1em;
+    font-size: 0.95em;
+    font-weight: 500;
+    opacity: 0.7;
+}
+
+.emailShort.unread .emailSender {
+    font-size: 0.95em;
+    font-weight: 600;
+    opacity: 0.65;
+}
+
+.rightEmailSide {
+    width: calc(83% - 7em);
+    display: flex;
+    justify-content: flex-start;
+    gap: 2em;
+    align-items: center;
+}
+
+.rightEmailSide .emailAllDetails {
+    width: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+}
+
+.rightEmailSide .emailAllDetails .emailSubject {
+    font-size: 0.95em;
+    font-weight: 500;
+    opacity: 0.7;
+}
+
+.separator {
+    font-size: 0.9em;
+    opacity: 0.6;
+}
+
+.emailShort.unread .rightEmailSide .emailAllDetails .emailSubject {
+    font-size: 0.95em;
+    font-weight: 600;
+    opacity: 0.65;
+}
+
+.rightEmailSide .emailAllDetails .emailContent {
+    font-size: 0.95em;
+    font-weight: 500;
+    opacity: 0.5;
+}
+
+.emailShort.checked .rightEmailSide .emailAllDetails .emailContent {
+    opacity: 0.4;
+}
+
+.rightEmailSide .time {
+    width: calc(10% - 2em);
+    font-size: 0.75em;
+    font-weight: 500;
+    opacity: 0.6;
+}
+
+.emailShort.unread .rightEmailSide .time {
+    font-size: 0.75em;
+    font-weight: 600;
+    opacity: 0.65;
 }
